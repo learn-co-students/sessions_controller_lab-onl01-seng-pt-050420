@@ -13,17 +13,17 @@ RSpec.describe SessionsController, type: :controller do
       expect(response).to redirect_to controller: 'sessions', action: 'new'
     end
 
-    #it 'sets session[:name] if :name was given' do
-      #me = 'Werner Brandes'
-      #post :create, params: { name: me }
-      #expect(@request.session[:name]).to eq me
-    #end
+    it 'sets session[:name] if :name was given' do
+      me = 'Werner Brandes'
+      post :create, params: { name: me }
+      expect(@request.session[:name]).to eq me
+    end
 
-    #it 'redirects to "/" if logged in' do
-      #me = 'Werner Brandes'
-      #post :create, params: { name: me }
-      #expect(response).to redirect_to('/')
-    #end
+    it 'redirects to "/" if logged in' do
+      me = 'Werner Brandes'
+      post :create, params: { name: me }
+      expect(response).to redirect_to('/')
+    end
 
 
   end
@@ -34,11 +34,11 @@ RSpec.describe SessionsController, type: :controller do
       expect(@request.session[:name]).to be nil
     end
 
-    #it 'clears session[:name] if it was set' do
-      #post :create, params: { name: 'Trinity' }
-      #expect(@request.session[:name]).not_to be nil
-      #post :destroy
-      #expect(@request.session[:name]).to be nil
-    #end
+    it 'clears session[:name] if it was set' do
+      post :create, params: { name: 'Trinity' }
+      expect(@request.session[:name]).not_to be nil
+      post :destroy
+      expect(@request.session[:name]).to be nil
+    end
   end
 end
