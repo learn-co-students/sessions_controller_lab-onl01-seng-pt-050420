@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+<<<<<<< HEAD
     def new
         # user = User.new
     end 
@@ -20,3 +21,15 @@ class SessionsController < ApplicationController
 
 
 end 
+=======
+    
+    def create
+        
+    end 
+
+    def destroy
+        session.destroy
+    end 
+
+end 
+>>>>>>> 07786b7c1f56fa7b51baa4451323f48aca378156
